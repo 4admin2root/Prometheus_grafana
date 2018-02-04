@@ -1,9 +1,8 @@
 # Prometheus_grafana
 ## what
 ### overview
-https://prometheus.io/docs/introduction/overview/
-
-Components
+https://prometheus.io/docs/introduction/overview/   
+http://docs.grafana.org/
 
 ### architecture
 https://prometheus.io/assets/architecture.svg
@@ -11,11 +10,11 @@ https://prometheus.io/assets/architecture.svg
 
 ## how
 
-### install
+### install prometheus
 
-* config file overview
+* create config file
 ```
-cat prometheus.yml
+cat config/prometheus.yml
 ```
 
 * download docker image
@@ -25,7 +24,7 @@ docker pull prom/prometheus:v2.0.0
 
 * run 
 ```
-docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus:v2.0.0
+docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus:v2.0.0
 ```
 
 * view prometheus metircs
@@ -33,7 +32,7 @@ docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  p
 curl localhost:9090/metrics
 ```
 
-* browser prometheus web
+* browser prometheus web   
 http://localhost:9090/graph
 
 
