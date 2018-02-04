@@ -24,7 +24,10 @@ docker pull prom/prometheus:v2.0.0
 
 * run 
 ```
-docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus:v2.0.0
+
+docker run -d --name prom -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus:v2.0.0
+# for mac
+docker run -d --name prom -p 9090:9090 -v /tmp/prometheus-mac.yml:/etc/prometheus/prometheus.yml  prom/prometheus:v2.0.0
 ```
 
 * view prometheus metircs
@@ -48,12 +51,14 @@ wget https://github.com/prometheus/node_exporter/releases/download/v0.15.0/node_
 
 # run
 # ./node_exporter -h
-./node_exporter
+nohup ./node_exporter &
 
-
+curl http://localhost:9100/metrics
 ```
+
  node exporter (docker , not not recommended)
 ```
+# linux server
 docker run -d -p 9100:9100 \
   -v "/proc:/host/proc:ro" \
   -v "/sys:/host/sys:ro" \
@@ -77,9 +82,15 @@ sudo docker run \
   --detach=true \
   --name=cadvisor \
   google/cadvisor:latest
+  
+curl http://localhost:8080/metrics
 ```
 
-* docker --metrics-addr
+* browse prometheus    
+http://localhost:9090/targets
+
+
+
 
 
 * java
