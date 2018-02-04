@@ -10,7 +10,7 @@ https://prometheus.io/assets/architecture.svg
 
 ## how
 
-### install prometheus
+### start prometheus
 
 * create config file
 ```
@@ -40,7 +40,7 @@ http://localhost:9090/graph
 
 
 
-#### exporter
+### start exporter
 * node exporter
 ```
 # mac
@@ -90,14 +90,24 @@ curl http://localhost:8080/metrics
 http://localhost:9090/targets
 
 
-
-
-
 * java
 
+### start grafana
+* run
+```
+docker run -d --name grafana -p 3000:3000 grafana/grafana:4.4.3
+sleep 10
+curl localhost:3000
+```
+* config data sources   
+browse localhost:3000 with username 'admin' and password 'admin'   
+name: default
+type: prometheus
+url : http://172.17.0.1:9090    
+    for mac : http://docker.for.mac.host.internal:9090
 
-
-
-
-## how
+* dashboard id
+host stats : 718    
+node expoter server metris : 405   
+docker and system monitoring : 893
 
