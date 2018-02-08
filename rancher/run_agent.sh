@@ -1,0 +1,2 @@
+#sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.9 http://192.168.0.110:8080/v1/scripts/C018E8EB474083D8C10A:1514678400000:WilyCnIY7ikbhDYEPHD8g1ei26E
+sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /Users/luijason/github/Prometheus_grafana/rancher/data:/var/lib/rancher rancher/agent:v1.2.9 http://192.168.0.110:8080/v1/scripts/C018E8EB474083D8C10A:1514678400000:WilyCnIY7ikbhDYEPHD8g1ei26E
